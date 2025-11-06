@@ -68,6 +68,7 @@ python scripts/script.py data/string_network_filtered_hugo-400.tsv -n 10 -o resu
 ---
 
 * Parámetros de ejecución:
+
 | Parámetro | Descripción | Valor por defecto | Ejemplo |
 |------------|--------------|------------------|----------|
 | `network` | Ruta del archivo de red (obligatorio) | — | `data/string_network_filtered_hugo-400.tsv` |
@@ -76,6 +77,7 @@ python scripts/script.py data/string_network_filtered_hugo-400.tsv -n 10 -o resu
 | `-a`, `--alpha` | Peso asignado a los genes semilla (α) | `1` | `-a 1` |
 | `-o`, `--out` | Archivo de salida donde se guardarán los genes añadidos | `output.txt` | `-o results/output.txt` |
 | `--score-threshold` | Umbral mínimo de score (si se usa un fichero STRING con columna `combined_score`) | `400` | `--score-threshold 400` |
+
 ---
 
 * Salida:
