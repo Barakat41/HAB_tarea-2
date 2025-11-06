@@ -17,6 +17,9 @@ def read_network(path, score_threshold=400):
     - 2 columnas (nodeA, nodeB) o 3 columnas (nodeA, nodeB, score)
     - Si hay una columna numérica en la 3a posición, se filtra por score_threshold.
     Devuelve un networkx.Graph
+
+    path: ruta al fichero
+    score_threshold: si hay scores, filtrar por este umbral
     """
     G = nx.Graph()
     with open(path, 'r', encoding='utf-8') as f:
@@ -61,6 +64,8 @@ def read_seeds(path):
     """
     Lee un fichero de semillas: una por línea o separadas por comas.
     Si no se recibe path, devuelve las semillas por defecto (ENO1, PGK1, HK2)
+
+    path: ruta al fichero de semillas
     """
     default = {'ENO1', 'PGK1', 'HK2'}
     if not path:
@@ -84,10 +89,10 @@ def read_seeds(path):
 def diamond(G, seeds, X, alpha=1, verbose=True):
     """
     Versión simple de DIAMOnD:
-    - G: networkx graph
-    - seeds: iterable de nodos iniciales (sus nombres deben existir en G)
-    - X: número de nodos a añadir
-    - alpha: integer weight for seeds (simple: s = alpha * |seeds|)
+    G: networkx graph
+    seeds: iterable de nodos iniciales (sus nombres deben existir en G)
+    X: número de nodos a añadir
+    alpha: integer weight for seeds (simple: s = alpha * |seeds|)
     Devuelve la lista de nodos añadidos en orden.
     """
     # validar semillas y avisar si faltan
