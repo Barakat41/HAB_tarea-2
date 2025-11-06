@@ -83,6 +83,6 @@ python scripts/script.py data/string_network_filtered_hugo-400.tsv -n 10 -o resu
 * Salida:
 El archivo de salida contiene una lista ordenada de **n** genes añadidos por el algoritmo DIAMOnD, uno por línea, en el orden en que fueron incorporados al módulo.
 
-
+---
 
 
