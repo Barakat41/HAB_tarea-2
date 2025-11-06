@@ -15,7 +15,7 @@ Escribe un script en Python que implemente un ejemplo de propagación en redes u
 │   └── genes\_seed.txt                           # Genes semilla: ENO1, PGK1, HK2
 ├── scripts/
 │   ├── process\_STRING.py                        # Script de ejemplo para procesar la red
-│   └── tu\_script.py                             # Script que debe entregar el estudiante
+│   └── script.py                             # Script que debe entregar el estudiante
 ├── results/                                     # Carpeta para resultados generados
 ├── README.md                                    # Este archivo
 └── requirements.txt                             # Dependencias: networkx, pandas
@@ -52,4 +52,35 @@ networkx
 pandas
 
 ```
+
+## Ejecución de la solución
+
+* Instalación de dependencias: 
+```
+pip install -r requirements.txt
+```
+---
+
+* Ejemplo de ejecución del script:
+```
+python scripts/script.py data/string_network_filtered_hugo-400.tsv -n 10 -o results/output.txt
+```
+---
+
+* Parámetros de ejecución:
+| Parámetro | Descripción | Valor por defecto | Ejemplo |
+|------------|--------------|------------------|----------|
+| `network` | Ruta del archivo de red (obligatorio) | — | `data/string_network_filtered_hugo-400.tsv` |
+| `-s`, `--seeds` | Archivo con genes semilla (uno por línea). Si no se indica, usa ENO1, PGK1 y HK2 | `None` | `-s data/genes_seed.txt` |
+| `-n`, `--num` | Número de genes a añadir mediante DIAMOnD | `200` | `-n 10` |
+| `-a`, `--alpha` | Peso asignado a los genes semilla (α) | `1` | `-a 1` |
+| `-o`, `--out` | Archivo de salida donde se guardarán los genes añadidos | `output.txt` | `-o results/output.txt` |
+| `--score-threshold` | Umbral mínimo de score (si se usa un fichero STRING con columna `combined_score`) | `400` | `--score-threshold 400` |
+---
+
+* Salida:
+El archivo de salida contiene una lista ordenada de **n** genes añadidos por el algoritmo DIAMOnD, uno por línea, en el orden en que fueron incorporados al módulo.
+
+
+
 
